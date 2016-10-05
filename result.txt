@@ -1,3 +1,2 @@
-ww 2
-as 1
-like 4
+out 1000
+in 1000
