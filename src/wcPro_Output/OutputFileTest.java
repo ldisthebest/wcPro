@@ -25,7 +25,7 @@ public class OutputFileTest {
 
     void testTwoResult() throws IOException{
     	res=new ArrayList<Map.Entry<String,Integer>>(m.entrySet());
-    	test.OutPut(res);
+    	test.outPut(res);
     	InputStream file = new FileInputStream("result.txt");
 		int ch = file.read();
 		while(ch != -1){

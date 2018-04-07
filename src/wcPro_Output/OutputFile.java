@@ -7,35 +7,32 @@ import java.util.*;
 
 
 public class OutputFile {
-	public static void main (String[] args) throws IOException{
-		//测试是否正确，加入一些值
-		//Map<String,Integer> m = new HashMap<String,Integer>();
-		Map<String, Integer> m = new LinkedHashMap <String, Integer>();
-		m.put("as", 1);
-		m.put("ll",23);
-		m.put("we",11);
-		m.put("qute",3);
-		List<Map.Entry<String,Integer>> res = new ArrayList<Map.Entry<String,Integer>>(m.entrySet());
-
-		
-		//输出到文件
-		OutputFile test = new OutputFile();//声明输出类
-		test.OutPut(res);//调用输出到文件的方法
-
-	}
-	public void OutPut(List<Map.Entry<String,Integer>> res) throws IOException
+	
+	public void outPut(List<Map.Entry<String,Integer>> res) throws IOException
 	{
-		String result = "";
-		for(int i = 0;i<res.size();i++){
-			result += res.get(i).getKey()+" "+res.get(i).getValue();
-			if(i != res.size()-1){
-				result +="\r\n";
+		String result = ""; //输出到文件的内容
+		//遍历map的list数组并按照指定格式加入到result中
+		for(int index = 0;index<res.size();index++){
+			result += res.get(index).getKey()+" "+res.get(index).getValue();
+			if(index != res.size()-1){
+				result +="\r\n"; //除了最后一个单词的词频不加换行符其他都要加
 			}			
 		}
-		File f = new File("result.txt");
-		FileWriter file = new FileWriter(f);
-		file.write(result);
-		file.close();
+		File f = null;
+		FileWriter file = null;
+		try{
+			f = new File("result.txt");//打开名为result的文件
+			file = new FileWriter(f);
+			file.write(result);//写入到指定文件
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}	
+		finally{
+			file.close();//关闭文件流
+		}
+		
+		
 	}
 
 }

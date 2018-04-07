@@ -1,2 +1,4 @@
-out 1000
-in 1000
+as 1
+ll 23
+we 11
+qute 3
